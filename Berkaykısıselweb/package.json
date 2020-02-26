@@ -6,10 +6,8 @@
     },
     "devDependencies": {
       "parcel": "1.11.0"
-    },
-    "scripts": {
-      "start": "parcel index.html",
-      "build": "parcel build --experimental-scope-hoisting --public-url . openlayermap.html"}}
+    }
+    }
 
       {
         "name": "berkaypersonal",
