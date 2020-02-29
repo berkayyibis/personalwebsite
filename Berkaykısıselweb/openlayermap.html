@@ -1,0 +1,161 @@
+
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+  <title>Web Map</title>
+    <link rel="stylesheet" href="style.css"> </head>
+	<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.2.1/css/ol.css" type="text/css">
+    <style>
+      .map {
+        height: 800px;
+        width: 100%;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.2.1/build/ol.js"></script>
+    <title>OpenLayers example</title>
+  </head>
+  <body>
+  <body>
+ <div class="content">
+            <nav class="menu">
+			<ul>
+			<li><a href="index.html" >HOME PAGE</a></li>
+			<li><a href="hakkimda.html">ABOUT ME</a></li>
+			<li><a href="cv.html">CV</a></li>
+			<li><a href="openlayermap.html">MAP</a></li>
+			<li><a href="iletisim.html">CONTACT</a></li>
+			</ul>
+			</nav>
+    <h2>My Travel Map</h2>
+    <link rel="stylesheet" href="https://openlayers.org/en/v5.2.0/css/ol.css" type="text/css">
+<script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.2.0/build/ol.js"></script>
+
+    <div id="map" class="map"></div>
+
+    <script type="text/javascript">
+
+      var map = new ol.Map({
+  target: 'map',
+  layers: [
+    new ol.layer.Tile({
+      source: new ol.source.OSM()
+    })
+  ],
+  view: new ol.View({
+    center: ol.proj.fromLonLat([32.54, 39.57]),
+    zoom: 10
+  })
+});
+var coords = [
+  [32.54, 39.57],
+  [29.02, 41.00],
+  [23.46, 37.58],
+  [13.25, 52.30],
+  [4.54, 52.23],
+  [2.20, 48.50],
+  [12.29, 41.54],
+  [1.75, 41.40]
+];
+var lineString = new ol.geom.LineString(coords);
+// transform to EPSG:3857
+lineString.transform('EPSG:4326', 'EPSG:3857');
+
+// create the feature
+var feature = new ol.Feature({
+  geometry: lineString,
+  name: 'Line'
+});
+
+var lineStyle = new ol.style.Style({
+  stroke: new ol.style.Stroke({
+    color: '#ffcc33',
+    width: 10
+  })
+});
+
+var source = new ol.source.Vector({
+  features: [feature]
+});
+var vector = new ol.layer.Vector({
+  source: source,
+  style: [lineStyle]
+});
+
+
+
+var coords2 = [
+  [32.54, 39.57],
+  [21.26, 42.01],
+  [19.57, 44.50],
+  [19.37, 42.23],
+  [18.46, 44.00],
+
+];
+var lineString2 = new ol.geom.LineString(coords2);
+// transform to EPSG:3857
+lineString2.transform('EPSG:4326', 'EPSG:3857');
+
+// create the feature
+var feature2 = new ol.Feature({
+  geometry: lineString2,
+  name: 'Line'
+});
+
+var lineStyle2 = new ol.style.Style({
+  stroke: new ol.style.Stroke({
+    color: '#00ffff',
+    width: 10
+  })
+});
+
+var source2 = new ol.source.Vector({
+  features: [feature2]
+});
+var vector2 = new ol.layer.Vector({
+  source: source2,
+  style: [lineStyle2]
+});
+
+var coords3 = [
+  [32.54, 39.57],
+  [33.23, 35.10]
+
+];
+var lineString3 = new ol.geom.LineString(coords3);
+// transform to EPSG:3857
+lineString3.transform('EPSG:4326', 'EPSG:3857');
+
+// create the feature
+var feature3 = new ol.Feature({
+  geometry: lineString3,
+  name: 'Line'
+});
+
+var lineStyle3 = new ol.style.Style({
+  stroke: new ol.style.Stroke({
+    color: '#00ffff',
+    width: 10
+  })
+});
+
+var source3 = new ol.source.Vector({
+  features: [feature3]
+});
+var vector3 = new ol.layer.Vector({
+  source: source3,
+  style: [lineStyle3]
+});
+map.addLayer(vector);
+map.addLayer(vector2);
+map.addLayer(vector3);
+</script>
+<div>
+<div>
+<h2>Orange lines is places ı want to go</h2>
+<h2>Turquoise lines is places ı went</h2>
+<div>
